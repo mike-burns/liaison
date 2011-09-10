@@ -38,31 +38,31 @@ It's just a class, which you can unit test as you please. A presenter object is 
 
 Now you need to know how to use a `Presenter` object, so this is what the controller looks like:
 
-  class SignupsController < ApplicationController
-    def new
-      @sign_up = presenter
-    end
-  
-    def create
-      @sign_up = presenter.with_params(params[:sign_up])
-      db = SignUp.new(@sign_up)
-  
-      if db.save
-        sign_in_as(db.user)
-        redirect_to root_url
-      else
-        render :new
+    class SignupsController < ApplicationController
+      def new
+        @sign_up = presenter
+      end
+    
+      def create
+        @sign_up = presenter.with_params(params[:sign_up])
+        db = SignUp.new(@sign_up)
+    
+        if db.save
+          sign_in_as(db.user)
+          redirect_to root_url
+        else
+          render :new
+        end
+      end
+      
+      protected
+      
+      def presenter
+        Presenter.new('sign_up',
+                      :fields => [:email, :password, :account_name],
+                      :validator => SignUpValidator.new)
       end
     end
-    
-    protected
-    
-    def presenter
-      Presenter.new('sign_up',
-                    :fields => [:email, :password, :account_name],
-                    :validator => SignUpValidator.new)
-    end
-  end
 
 In our `new` action we simply set the `@sign_up` i-var to an instance of the `Presenter`. In `create` we use that `Presenter` instance, adding CGI params in. Then we pass that to the `SignUp` class defined above and it's all boring from there.
 
