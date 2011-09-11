@@ -29,12 +29,8 @@ class Presenter
   end
 
   def self.model_name # :nodoc:
-    ActiveModel::Name.new(Class.new do
-      attr_reader :name
-      def initialize(n)
-        @name = n
-      end
-    end.new(@@model_name))
+    model_namer = Struct.new("ModelNamer", :name).new(@@model_name)
+    ActiveModel::Name.new(model_namer)
   end
 
   def persisted? # :nodoc:
