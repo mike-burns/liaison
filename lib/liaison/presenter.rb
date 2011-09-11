@@ -24,20 +24,21 @@ class Presenter
     self.class.send(:attr_accessor,*@fields) unless @fields.nil? || @fields.empty?
   end
 
-  def instance_validations
-    validates_with(@validator, :attributes => @fields) if @validator
-  end
-
+  # This only exists for ActiveModel::Naming
   def self.model_name # :nodoc:
     model_namer = Struct.new("ModelNamer", :name).new(@@model_name)
     ActiveModel::Name.new(model_namer)
   end
 
+  # This only exists for ActiveModel::Constructs
   def persisted? # :nodoc:
     false
   end
 
   # Set the params from the form using this.
+  #
+  # For example, if you have a presenter in the @sign_up_presenter variable,
+  # you can update the values in it using this method:
   #
   #   @sign_up_presenter.with_params(params[:sign_up])
   def with_params(params = {})
@@ -72,8 +73,8 @@ class Presenter
     to_hash[key]
   end
 
-  # This is an instance of Enumerable, which means you can iterate over the
-  # keys and values as set by the form.
+  # Presenter objects are instances of Enumerable, which means you can iterate
+  # over the keys and values as set by the form.
   #
   #   @sign_up_presenter.each {|k,v| puts "the form set #{k} to #{v}" }
   def each(&block)
@@ -87,5 +88,9 @@ class Presenter
       acc[field] = send(field)
       acc
     end
+  end
+
+  def instance_validations
+    validates_with(@validator, :attributes => @fields) if @validator
   end
 end
