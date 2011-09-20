@@ -1,0 +1,9 @@
+2011-09-20   Mike Burns   <mburns@thoughtbot.com>
+
+	* presenter.rb, presenter_spec.rb:
+	Include the Enumerable module to the Presenter class, with a test.
+
+	* NEWS, ChangeLog:
+	Add an overview NEWS file and a more detailed ChangeLog file.
+
+	* version.rb: Bump version to 0.0.2.

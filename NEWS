@@ -1,0 +1,4 @@
+New in 0.0.2:
+
+* The Presenter class now includes the Enumerable class. This means you can
+  use #map, #reject, #sort, and so on, on the Presenter data object.
