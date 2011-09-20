@@ -4,6 +4,7 @@ class Presenter
   extend ActiveModel::Naming
   include ActiveModel::Conversion
   include ActiveModel::Validations
+  include Enumerable
 
   validate :instance_validations
 

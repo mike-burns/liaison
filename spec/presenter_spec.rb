@@ -96,4 +96,8 @@ describe Presenter, "enumerations" do
     subject[:a].should == 'hello'
     subject[:b].should == 'goodbye'
   end
+
+  it "has at least #reject" do
+    subject.reject {|k,v| k == :a}.should == [[:b, 'goodbye']]
+  end
 end
