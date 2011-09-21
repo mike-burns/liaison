@@ -82,7 +82,7 @@ Now you need to know how to use a `Presenter` object, so this is what the contro
       def presenter
         Presenter.new('sign_up',
                       :fields => [:email, :password, :account_name],
-                      :validator => SignUpValidator.new)
+                      :validator => SignUpValidator)
       end
     end
 
