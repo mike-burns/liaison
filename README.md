@@ -22,7 +22,7 @@ The business logic classes (`SignUp` in the below example) live under `app/model
 
 Validator classes (`SignUpValidator` in the below example) live under `lib` and must either descend from `ActiveModel::Validator` or implement the same interface (`.kind`, `#kind`, `#validate` that takes a record, and a constructor that takes a hash of options). They are also unit tested like normal and can likely get away with just requiring `rspec` instead of `spec_helper`. Sadly, in order to hook into the `ActiveModel::Validations` framework, you must pass the validator class itself instead of an object (`SignUpValidator` vs `SignUpValidator.new`).
 
-Turorial and Thought Process
+Tutorial and Thought Process
 ----------------------------
 
 A major idea of [the presenter pattern](http://blog.jayfields.com/2007/03/rails-presenter-pattern.html) is to break off the business logic from the view object, letting the view logic be a dumb instance that knows how to get, set, and validate values. The business logic can then query the presenter object for the values as needed.
