@@ -1,6 +1,11 @@
 2011-09-21  Mike Burns  <mburns@thoughtbot.com>
 
 	* ChangeLog, NEWS: Retroactively update the docs based on git history.
+	* README.md:
+	Link to the NEWS, ChangeLog, and Ruby docs at the top of the docs.
+	Mention the license in the contact section.
+	Demand that pull requests update the ChangeLog and NEWS.
+	Mention the GNU ChangeLog format.
 
 2011-09-21  Matt Gillooly  <matt@mattgillooly.com>
 

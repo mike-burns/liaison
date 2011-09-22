@@ -3,6 +3,8 @@ Liaison
 
 A Rails presenter class.
 
+Experienced devs will be interested in the [NEWS](https://github.com/mike-burns/liaison/blob/master/NEWS), [ChangeLog](https://github.com/mike-burns/liaison/blob/master/ChangeLog), and [reference documentation](http://rubydoc.info/gems/liaison/0.0.2/frames).
+
 How to Use Liaison
 ------------------
 
@@ -128,6 +130,6 @@ When writing your unit tests it'll be handy to have a mock presenter around, whi
 Contact
 -------
 
-Copyright 2011 [Mike Burns](http://mike-burns.com/).
+Copyright 2011 [Mike Burns](http://mike-burns.com/). Distributed under [the three-clause BSD license](https://github.com/mike-burns/liaison/blob/master/LICENSE).
 
-Please [open a pull request on Github](https://github.com/mike-burns/liaison/pulls) as needed.
+Please [open a pull request on Github](https://github.com/mike-burns/liaison/pulls) as needed. Be sure to update the ChangeLog and, if needed, the NEWS. We follow [the GNU ChangeLog format](http://www.gnu.org/prep/standards/html_node/Change-Logs.html).
