@@ -1,3 +1,8 @@
+2011-10-20  Mike Burns  <mburns@thoughtbot.com>
+
+	* presenter.rb, presenter_spec.rc: Don't name the struct so that we can
+	avoid redefining a constant.
+
 2011-09-21  Mike Burns  <mburns@thoughtbot.com>
 
 	* ChangeLog, NEWS: Retroactively update the docs based on git history.

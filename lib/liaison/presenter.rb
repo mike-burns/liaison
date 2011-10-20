@@ -27,7 +27,7 @@ class Presenter
 
   # This only exists for ActiveModel::Naming
   def self.model_name # :nodoc:
-    model_namer = Struct.new("ModelNamer", :name).new(@@model_name)
+    model_namer = Struct.new(:name).new(@@model_name)
     ActiveModel::Name.new(model_namer)
   end
 

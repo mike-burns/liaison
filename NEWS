@@ -1,3 +1,7 @@
+New in 0.0.3:
+
+* Take care of a warning based on using a struct for the model_name.
+
 New in 0.0.2:
 
 * The #instance_validations method, part of the plumbing to make the

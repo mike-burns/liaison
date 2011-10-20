@@ -15,6 +15,11 @@ describe Presenter do
     subject.to_key.should be_nil
     subject.to_param.should be_nil
   end
+
+  it "does not mind having a bunch of them" do
+    Presenter.new("another_model_name").class.model_name
+    # The result is that this should have no warning in the test output
+  end
 end
 
 describe Presenter, 'validations' do
