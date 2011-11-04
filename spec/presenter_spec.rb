@@ -29,6 +29,13 @@ describe Presenter do
     foo.should_not respond_to(:bar)
     bar.should_not respond_to(:foo)
   end
+
+  it "sets model name per instance" do
+    foo = Presenter.new("foo")
+    bar = Presenter.new("bar")
+    foo.class.model_name.should == "foo"
+    bar.class.model_name.should == "bar"
+  end
 end
 
 describe Presenter, 'validations' do
