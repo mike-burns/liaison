@@ -20,6 +20,15 @@ describe Presenter do
     Presenter.new("another_model_name").class.model_name
     # The result is that this should have no warning in the test output
   end
+
+  it "sets attributes accessor per instance" do
+    foo = Presenter.new("foo", :fields => [:foo])
+    bar = Presenter.new("bar", :fields => [:bar])
+    foo.should respond_to(:foo)
+    bar.should respond_to(:bar)
+    foo.should_not respond_to(:bar)
+    bar.should_not respond_to(:foo)
+  end
 end
 
 describe Presenter, 'validations' do
