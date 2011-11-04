@@ -22,7 +22,7 @@ class Presenter
     @validator = opts[:validator]
     @fields   = opts[:fields]
 
-    self.class.send(:attr_accessor,*@fields) unless @fields.nil? || @fields.empty?
+    (class << self; self; end).send :attr_accessor, *@fields unless @fields.nil? || @fields.empty?
   end
 
   # This only exists for ActiveModel::Naming
