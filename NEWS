@@ -1,3 +1,8 @@
+New in 0.0.4:
+
+* Field accessors and model_name now work per-instance instead of per-class, so
+  you can have more than one presenter in your system without it causing issues.
+
 New in 0.0.3:
 
 * Take care of a warning based on using a struct for the model_name.

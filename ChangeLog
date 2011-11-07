@@ -1,3 +1,13 @@
+2011-11-07  Mike Burns  <mburns@thoughtbot.com>
+
+	* presenter.rb, presenter_spec.rb: Define the model_name per-instance
+	instead of per-class. Suggestion by Peter Suschlik.
+
+2011-11-07  Peter Suschlik
+
+	* presenter.rb, presenter_spec.rb: Define the field accessors per-instance
+	instead of per-class.
+
 2011-10-20  Mike Burns  <mburns@thoughtbot.com>
 
 	* presenter.rb, presenter_spec.rc: Don't name the struct so that we can
