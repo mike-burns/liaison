@@ -17,19 +17,28 @@ class Presenter
   #                 :fields => [:account_name, :email, :password],
   #                 :validator => SignUpValidator)
   def initialize(model_name, opts = {})
-    @@model_name = model_name
+    @model_name = model_name
 
     @validator = opts[:validator]
     @fields   = opts[:fields]
 
-    (class << self; self; end).send :attr_accessor, *@fields unless @fields.nil? || @fields.empty?
+    if @fields && !@fields.empty?
+      (class << self; self; end).send(:attr_accessor, *@fields)
+    end
   end
 
   # This only exists for ActiveModel::Naming
-  def self.model_name # :nodoc:
-    model_namer = Struct.new(:name).new(@@model_name)
-    ActiveModel::Name.new(model_namer)
+  def class_with_model_name # :nodoc:
+    self.class_without_model_name.tap do |c|
+      c.instance_variable_set('@_model_name', @model_name)
+      (class << c; self; end).send(:define_method,:model_name) do
+        model_namer = Struct.new(:name).new(self.instance_variable_get('@_model_name'))
+        ActiveModel::Name.new(model_namer)
+      end
+    end
   end
+  alias class_without_model_name class
+  alias class class_with_model_name
 
   # This only exists for ActiveModel::Constructs
   def persisted? # :nodoc:
